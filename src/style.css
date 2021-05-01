@@ -314,3 +314,10 @@ nav a:hover {
     display: none;
   }
 }
+
+.galleryText {
+  padding-top: 2rem;
+  text-align: center;
+  background-color: rgba(53, 59, 53, 0.2);
+  backdrop-filter: blur(5px);
+}
