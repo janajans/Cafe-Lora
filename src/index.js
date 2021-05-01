@@ -72,24 +72,68 @@ const layers = [
 
 // ------7. NÁPOJ JAKO KOMPONENTA------ každý nápoj bude jedna komponenta
 // V index.js vytvořte komponentu Drink, která očekává props v následujícím tvaru:
-const drink1 = {
-  id: 'romano',
-  name: 'Romano',
-  ordered: false,
-  layers: [
-    {
-      color: '#fbdf5b',
-      label: 'citrón',
-    },
-    {
-      color: '#613916',
-      label: 'espresso',
-    },
-  ],
-};
+// const drink1 = {
+//   id: 'romano',
+//   name: 'Romano',
+//   ordered: false,
+//   layers: [
+//     {
+//       color: '#fbdf5b',
+//       label: 'citrón',
+//     },
+//     {
+//       color: '#613916',
+//       label: 'espresso',
+//     },
+//   ],
+// };
 
-const drinksListELm = document.querySelector('.drinks-list');
-drinksListELm.appendChild(Drink(drink1));
+// const drinksListELm = document.querySelector('.drinks-list');
+// drinksListELm.appendChild(Drink(drink1));
 
 // -----8. DYNAMICKÁ KOMPONENTA NÁPOJE
 // Zprovozněte tlačítko pro objednávání tak, aby veškerý kód byl součástí komponenty Drink. V tomto případě se budeme muset zbavit globální proměnné ordered. Ke stejnému účelu však můžeme využít vlastnost ordered, která je obsažena v každém objektu nápoje. Tak zaručíme, že každý nápoj bude mít svoji vlastní informaci o tom, zde je objednaný či nikoliv.
+
+// ----9- SEZNAM NÁPOJŮ----- (= zobrazit vícero nápojů)
+// globální proměnná:
+const drinks = [
+  {
+    id: 'cappuccino',
+    name: 'Cappuccino',
+    ordered: false,
+    layers: [
+      {
+        color: '#feeeca',
+        label: 'mléčná pěna',
+      },
+      {
+        color: '#fed7b0',
+        label: 'teplé mléko',
+      },
+      {
+        color: '#613916',
+        label: 'espresso',
+      },
+    ],
+  },
+  {
+    id: 'romano',
+    name: 'Romano',
+    ordered: false,
+    layers: [
+      {
+        color: '#fbdf5b',
+        label: 'citrón',
+      },
+      {
+        color: '#613916',
+        label: 'espresso',
+      },
+    ],
+  },
+];
+// Použijte cyklus for nebo forEach, projděte seznam nápojů a pomocí komponenty Drink zobrazte každý nápoj na stránce. Vyzkoušejte, že si každý nápoj můžete objednat nebo u něj zrušit objednávku.
+const drinksListELm = document.querySelector('.drinks-list');
+for (let i = 0; i < drinks.length; i += 1) {
+  drinksListELm.appendChild(Drink(drinks[i]));
+}
