@@ -36,7 +36,7 @@ orderBtnElm.addEventListener('click', () => {
   }
 });
 
-// -----INGREDIENCE JAKO KOMPONENTY--------- přepsat kód tak, aby ingredience (vrstva) byla komponenta
+// -----5. INGREDIENCE JAKO KOMPONENTY--------- přepsat kód tak, aby ingredience (vrstva) byla komponenta
 // V hlavním souboru index.js vytvořte komponentu Layer, která očekává props v následujícím tvaru.
 // {
 //   color: '#feeeca',
@@ -46,24 +46,27 @@ orderBtnElm.addEventListener('click', () => {
 // Použijte vaši komponentu a pomocí vlastnosti innerHTML zapojte do stránky tři dané ingredience pro cappuccino. Stránka by měla pro uživatele vypadat stejně jako na začátku.
 
 const drinkInfoElm = document.querySelector('.drink__info');
-drinkInfoElm.innerHTML += Layer({ color: '#feeeca', label: 'mléčná pěna' });
-drinkInfoElm.innerHTML += Layer({ color: '#fed7b0', label: 'teplé mléko' });
-drinkInfoElm.innerHTML += Layer({ color: '#613916', label: 'espresso' });
+// drinkInfoElm.innerHTML += Layer({ color: '#feeeca', label: 'mléčná pěna' });
+// drinkInfoElm.innerHTML += Layer({ color: '#fed7b0', label: 'teplé mléko' });
+// drinkInfoElm.innerHTML += Layer({ color: '#613916', label: 'espresso' });
 
-// --------SEZNAM INGREDIENCÍ------ (zobrazit podle dat uložených v poli)
+// --------6. SEZNAM INGREDIENCÍ------ (zobrazit podle dat uložených v poli)
 // Uvnitř hlavního index.js si vytvořte následujicí globální proměnnou.
-// const layers = [
-//   {
-//     color: '#feeeca',
-//     label: 'mléčná pěna',
-//   },
-//   {
-//     color: '#fed7b0',
-//     label: 'teplé mléko',
-//   },
-//   {
-//     color: '#613916',
-//     label: 'espresso',
-//   },
-// ];
+const layers = [
+  {
+    color: '#feeeca',
+    label: 'mléčná pěna',
+  },
+  {
+    color: '#fed7b0',
+    label: 'teplé mléko',
+  },
+  {
+    color: '#613916',
+    label: 'espresso',
+  },
+];
 // V současné chvíli používáme komponentu Layer tak, že 3x opakujeme skoro stejný kód. Zobrazte jednotlivé ingredience pomocí komponenty Layer tak, že použijte cyklus for nebo forEach a jako props použijete položky pole layers.
+for (let i = 0; i < layers.length; i += 1) {
+  drinkInfoElm.innerHTML += Layer(layers[i]);
+}
