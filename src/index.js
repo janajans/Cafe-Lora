@@ -1,4 +1,6 @@
 import './style.css';
+import { Layer } from './Layer/index.js';
+import './Layer/style.css';
 
 // ------ ZPROVOZNĚNÍ NAVIGACE ------- na úzkých displejích po kliknutí na hamburger ikonku
 // V JavaScriptu vyberte ze stránky ikonku #nav-btn. Připojte k ní posluchač události click. Tento posluchač prvku nav odebere nebo přidá třídu nav-closed. Klikáním na ikonku tak můžeme zobrazovat nebo skrývat navigaci.
@@ -40,9 +42,28 @@ orderBtnElm.addEventListener('click', () => {
 //   color: '#feeeca',
 //   label: 'mléčná pěna',
 // }
-
-// Podívejte se do index.html na strukturu jednotlivých layers. Komponenta nechť vrací řetězec obsahující výsledné HTML pro jednu vrstvu. V index.html si jednotlivé ingredience pro capuccino (divy .layer) zakomentujte nebo smažte.
+// Komponenta nechť vrací řetězec obsahující výsledné HTML pro jednu vrstvu. V index.html si jednotlivé ingredience pro capuccino (divy .layer) zakomentujte nebo smažte.
 // Použijte vaši komponentu a pomocí vlastnosti innerHTML zapojte do stránky tři dané ingredience pro cappuccino. Stránka by měla pro uživatele vypadat stejně jako na začátku.
-// Skvělá práce! Teď si komponentu Layer přesuneme do samostatné složky. Ve vašem projektu vytvořte pro vaši komponentu separátní složku s názvem Layer. V této složce bude index.js a style.css V souboru index.js bude JavaScriptový kód vaší komponenty. Kompnentu správně exportujte a správně ji importujte v hlavním index.js celého projektu. Vyzkoušejte, že váš projekt funguje.
-// Z hlavního souboru style.css přesuňte do CSS styly, které se týkají komponenty Layer do našeho nového style.css ve složce Layer. Nezapomeňte váš CSS soubor správně importovat do index.js aby jej Webpack zahrnul do výsledného sestavení.
-// Jakmile váš projekt funguje, commitněte váš kód s výborně napsanou commit zprávou a pushněte do vzdáleného repozitáře.
+
+const drinkInfoElm = document.querySelector('.drink__info');
+drinkInfoElm.innerHTML += Layer({ color: '#feeeca', label: 'mléčná pěna' });
+drinkInfoElm.innerHTML += Layer({ color: '#fed7b0', label: 'teplé mléko' });
+drinkInfoElm.innerHTML += Layer({ color: '#613916', label: 'espresso' });
+
+// --------SEZNAM INGREDIENCÍ------ (zobrazit podle dat uložených v poli)
+// Uvnitř hlavního index.js si vytvořte následujicí globální proměnnou.
+// const layers = [
+//   {
+//     color: '#feeeca',
+//     label: 'mléčná pěna',
+//   },
+//   {
+//     color: '#fed7b0',
+//     label: 'teplé mléko',
+//   },
+//   {
+//     color: '#613916',
+//     label: 'espresso',
+//   },
+// ];
+// V současné chvíli používáme komponentu Layer tak, že 3x opakujeme skoro stejný kód. Zobrazte jednotlivé ingredience pomocí komponenty Layer tak, že použijte cyklus for nebo forEach a jako props použijete položky pole layers.

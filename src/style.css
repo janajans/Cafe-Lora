@@ -215,7 +215,7 @@ nav a:hover {
   background-color: #e67e51;
 }
 
-.layer {
+/* .layer {
   display: flex;
   padding: 0.25rem;
 }
@@ -233,7 +233,7 @@ nav a:hover {
 
 .layer__label {
   line-height: 1rem;
-}
+} */
 
 .gallery {
   padding-top: 0;
