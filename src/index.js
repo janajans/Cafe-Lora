@@ -71,46 +71,6 @@ const layers = [
 // }
 
 // ------7. NÁPOJ JAKO KOMPONENTA------ každý nápoj bude jedna komponenta
-// Podívejte se do index.html nebo do devtools na strukturu jednoho nápoje. Tento obsah si v index.html zakomentujte. Zakomentujte si také přidávání ingrediencí capuccina pomocí komponenty Layer v hlavním index.js.
-
-// STRUKTURA JEDNOHO NÁPOJE V HTML:
-/* <div class="drink">
-<div class="drink__product">
-  <div class="drink__cup">
-    <img src="/assets/cups/cappuccino.png" />
-  </div>
-  <div class="drink__info">
-    <h3>Cappuccino</h3>
-    <!-- <div class="layer">
-      <div
-        class="layer__color"
-        style="background-color: #feeeca"
-      ></div>
-      <div class="layer__label">mléčná pěna</div>
-    </div>
-    <div class="layer">
-      <div
-        class="layer__color"
-        style="background-color: #fed7b0"
-      ></div>
-      <div class="layer__label">teplé mléko</div>
-    </div>
-
-    <div class="layer">
-      <div
-        class="layer__color"
-        style="background-color: #613916"
-      ></div>
-      <div class="layer__label">espresso</div>
-    </div> -->
-  </div>
-</div>
-<div class="drink__controls">
-  <button class="order-btn">Objednat</button>
-</div>
-</div>  */
-
-// vytvořte pro komponentu složku Drink s index.js a style.css (...)
 // V index.js vytvořte komponentu Drink, která očekává props v následujícím tvaru:
 const drink1 = {
   id: 'romano',
@@ -127,27 +87,9 @@ const drink1 = {
     },
   ],
 };
-// Komponentu napište tak, aby vracela DOM element.
+
 const drinksListELm = document.querySelector('.drinks-list');
 drinksListELm.appendChild(Drink(drink1));
 
-// Uvnitř vaší komponenty bude potřeba použít komponentu Layer. Dejte si pozor, abyse ji správně importovali.
-// KOMPONENTA LAYER
-// export const Layer = (props) => {
-//   return `
-// <div class="layer">
-//   <div class="layer__color" style="background-color: ${props.color}"></div>
-//   <div class="layer__label">${props.label}</div>
-// </div>`;
-// };
-// Komponentu Layer v naší komponentě Drink použijte pomocí innerHTML, stejně jako jsme to dělali v hlavním index.js.
-
-// Název obrázku, který se má zobrazit, můžete vzít z vlastnosti id. Je tak pouze potřeba sestavit správnou cestu pro atribut src.
-
-// Tlačítko zatím pouze staticky zobrazte, fuknčnost mu přidáme v dalším kroku.
-
-// Zobrazte na stránce nápoj dle dat uvedených výše. V hlavním index.js na správný prvek použijte funkci appendChild, neboť naše komponenta vrací DOM element. Měli byste vidět teď jeden nápoj, ‘Romano’.
-
 // -----8. DYNAMICKÁ KOMPONENTA NÁPOJE
 // Zprovozněte tlačítko pro objednávání tak, aby veškerý kód byl součástí komponenty Drink. V tomto případě se budeme muset zbavit globální proměnné ordered. Ke stejnému účelu však můžeme využít vlastnost ordered, která je obsažena v každém objektu nápoje. Tak zaručíme, že každý nápoj bude mít svoji vlastní informaci o tom, zde je objednaný či nikoliv.
-// Vyzkoušejte si na stránce, že objednávání funguje.

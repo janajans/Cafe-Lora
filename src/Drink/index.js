@@ -1,6 +1,5 @@
 import { Layer } from '../Layer/index.js';
 import './style.css';
-// V index.js vytvořte komponentu Drink, která očekává props v následujícím tvaru:
 
 export const Drink = (props) => {
   let layersHtml = '';
@@ -18,5 +17,35 @@ export const Drink = (props) => {
 </div>
 <div class="drink__controls"><button class="order-btn">Objednat</button></div>
 </div>`;
+  // dávala jsem document.querySelector, musí být element.querySelector!
+  const orderBtnElm = element.querySelector('.order-btn');
+  const drinkCupElm = element.querySelector('.drink__cup');
+  orderBtnElm.addEventListener('click', () => {
+    if (props.ordered) {
+      drinkCupElm.classList.add('drink__cup--selected');
+      orderBtnElm.textContent = 'Zrušit';
+      props.ordered = false;
+    } else {
+      drinkCupElm.classList.remove('drink__cup--selected');
+      orderBtnElm.textContent = 'Objednat';
+      props.ordered = true;
+    }
+  });
   return element;
 };
+
+// Zprovozněte tlačítko pro objednávání tak, aby veškerý kód byl součástí komponenty Drink --> zbavit se globální proměnné ordered, ke stejnému účelu využít vlastnost ordered, která je obsažena v každém objektu nápoje. Tak zaručíme, že každý nápoj bude mít svoji vlastní informaci o tom, zde je objednaný či nikoliv.
+// let ordered = true;
+// const orderBtnElm = document.querySelector('.order-btn');
+// const drinkCupElm = document.querySelector('.drink__cup');
+// orderBtnElm.addEventListener('click', () => {
+//   if (ordered) {
+//     drinkCupElm.classList.add('drink__cup--selected');
+//     orderBtnElm.textContent = 'Zrušit';
+//     ordered = false;
+//   } else {
+//     drinkCupElm.classList.remove('drink__cup--selected');
+//     orderBtnElm.textContent = 'Objednat';
+//     ordered = true;
+//   }
+// });
