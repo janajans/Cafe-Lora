@@ -96,44 +96,71 @@ const layers = [
 
 // ----9- SEZNAM NÁPOJŮ----- (= zobrazit vícero nápojů)
 // globální proměnná:
-const drinks = [
-  {
-    id: 'cappuccino',
-    name: 'Cappuccino',
-    ordered: false,
-    layers: [
-      {
-        color: '#feeeca',
-        label: 'mléčná pěna',
-      },
-      {
-        color: '#fed7b0',
-        label: 'teplé mléko',
-      },
-      {
-        color: '#613916',
-        label: 'espresso',
-      },
-    ],
-  },
-  {
-    id: 'romano',
-    name: 'Romano',
-    ordered: false,
-    layers: [
-      {
-        color: '#fbdf5b',
-        label: 'citrón',
-      },
-      {
-        color: '#613916',
-        label: 'espresso',
-      },
-    ],
-  },
-];
+// const drinks = [
+//   {
+//     id: 'cappuccino',
+//     name: 'Cappuccino',
+//     ordered: false,
+//     layers: [
+//       {
+//         color: '#feeeca',
+//         label: 'mléčná pěna',
+//       },
+//       {
+//         color: '#fed7b0',
+//         label: 'teplé mléko',
+//       },
+//       {
+//         color: '#613916',
+//         label: 'espresso',
+//       },
+//     ],
+//   },
+//   {
+//     id: 'romano',
+//     name: 'Romano',
+//     ordered: false,
+//     layers: [
+//       {
+//         color: '#fbdf5b',
+//         label: 'citrón',
+//       },
+//       {
+//         color: '#613916',
+//         label: 'espresso',
+//       },
+//     ],
+//   },
+// ];
 // Použijte cyklus for nebo forEach, projděte seznam nápojů a pomocí komponenty Drink zobrazte každý nápoj na stránce. Vyzkoušejte, že si každý nápoj můžete objednat nebo u něj zrušit objednávku.
+// const drinksListELm = document.querySelector('.drinks-list');
+// for (let i = 0; i < drinks.length; i += 1) {
+//   drinksListELm.appendChild(Drink(drinks[i]));
+// }
+
+// ----10. BACKEND---- (ze kterého si stáhneme seznam všech nabízených nápojů)
+// Seznam všech nápojů stáhnout z API pro Café Lóra na adrese: https://apps.kodim.cz/daweb/cafelora/api/drinks
+// což je pole plné objektů v této podobě:
+// {
+//   "id": "espresso",
+//   "name": "Espresso",
+//   "ordered": false,
+//   "layers": [
+//   {
+//   "color": "#613916",
+//   "label": "espresso"
+//   }
+//   ]
+//   },
+// Prohlédněte si data, která tento endpoint vrací.
+// Pomocí funkce fetch data stáhněte a zobrazte je na vaší stránce stejným způsobem, jako jste je zobrazovali doposud.
 const drinksListELm = document.querySelector('.drinks-list');
-for (let i = 0; i < drinks.length; i += 1) {
-  drinksListELm.appendChild(Drink(drinks[i]));
-}
+const displayDrinks = (json) => {
+  for (let i = 0; i < json.length; i += 1) {
+    drinksListELm.appendChild(Drink(json[i]));
+  }
+};
+
+fetch('https://apps.kodim.cz/daweb/cafelora/api/drinks')
+  .then((response) => response.json())
+  .then(displayDrinks);

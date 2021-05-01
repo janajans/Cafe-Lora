@@ -17,7 +17,7 @@ export const Drink = (props) => {
 </div>
 <div class="drink__controls"><button class="order-btn">Objednat</button></div>
 </div>`;
-  // dávala jsem document.querySelector, musí být element.querySelector!
+  // dávala jsem document.querySelector, musí být element.querySelector! = vybírat ho z elementu, ne z dokumentu
   const orderBtnElm = element.querySelector('.order-btn');
   const drinkCupElm = element.querySelector('.drink__cup');
   orderBtnElm.addEventListener('click', () => {
